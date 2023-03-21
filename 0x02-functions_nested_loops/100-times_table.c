@@ -1,46 +1,54 @@
 #include "main.h"
 
-/**
- * print_times_table - Prints the n times table
- *
- * @n: number times table (0 < n <= 15)
- *
- * Return: no return
- */
-void print_times_table(int n)
-{
-	int a, b, op;
 
-	if (n >= 0 && n <= 15)
+	/**
+ * print_to_98 - Prints all natural numbers
+ * from n to 98.
+ *
+ * @n: input number.
+ *
+ * Return: no return.
+ */
+
+	void print_times_table(int n)
 	{
-		for (a = 0; a <= n; a++)
+		int i, j, k;
+
+
+		if (n >= 0 && n <= 15)
 		{
-			_putchar(48);
-			for (b = 1; b <= n; b++)
+			for (i = 0; i <= n; i++)
 			{
-				op = a * b;
-				_putchar(44);
-				_putchar(32);
-				if (op <= 9)
+				for (j = 0; j <= n; j++)
 				{
-_putchar(32);
-					_putchar(32);
-					_putchar(op + 48);
+					k = j * i;
+					if (j == 0)
+					{
+						_putchar(k + '0');
+					} else if (k < 10 && j != 0)
+					{
+						_putchar(',');
+						_putchar(' ');
+						_putchar(' ');
+						_putchar(' ');
+						_putchar(k + '0');
+					} else if (k >= 10 && k < 100)
+{
+						_putchar(',');
+						_putchar(' ');
+						_putchar(' ');
+						_putchar((k / 10) + '0');
+						_putchar((k % 10) + '0');
+					} else if (k >= 100)
+					{
+						_putchar(',');
+						_putchar(' ');
+						_putchar((k / 100) + '0');
+						_putchar(((k / 10) % 10) + '0');
+						_putchar((k % 10) + '0');
+					}
 				}
-				else if (op <= 99)
-				{
-					_putchar(32);
-					_putchar((op / 10) + 48);
-					_putchar((op % 10) + 48);
-				}
-				else
-				{
-					_putchar(((op / 100) % 10) + 48);
-					_putchar(((op / 10) % 10) + 48);
-					_putchar((op % 10) + 48);
-}
+				_putchar('\n');
 			}
-			_putchar('\n');
 		}
 	}
-}
